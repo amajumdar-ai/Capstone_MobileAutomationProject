@@ -10,6 +10,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import io.appium.java_client.AppiumBy;
+import io.netty.handler.timeout.TimeoutException;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -37,30 +39,48 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void testValidLogin() {
-        test = extent.createTest("Valid Login Test on " + driver.getCapabilities().getCapability("deviceName"));
+public void testValidLogin() {
+    test = extent.createTest("Valid Login Test on " + driver.getCapabilities().getCapability("deviceName"));
 
-        // Perform login
-        loginPage.login("standard_user", "secret_sauce");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+    // Perform login
+    loginPage.login("standard_user", "secret_sauce");
 
-        try {
-            WebElement homeElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"test-Menu\"]") 
-            ));
+    // Use explicit wait instead of setting implicit wait to 0
+    try {
+        WebElement homeElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            AppiumBy.xpath("//android.view.ViewGroup[@content-desc=\"test-Menu\"]")
+        ));
 
-            Assert.assertTrue(homeElement.isDisplayed(), "❌ Homepage did not load correctly!");
+        Assert.assertTrue(homeElement.isDisplayed(), "❌ Homepage did not load correctly!");
 
-            // 📸 Capture Screenshot for Passed Test
-            String screenshotPath = captureScreenshot("testValidLogin");
+        // 📸 Capture Screenshot for Passed Test
+        String screenshotPath = captureScreenshot("testValidLogin");
+        if (screenshotPath != null && !screenshotPath.isEmpty()) {
             test.log(Status.PASS, "✅ Login successful, Login screen disappeared.",
                 MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-        } catch (Exception e) {
-            // 📸 Capture Screenshot for Failed Test
-            String screenshotPath = captureScreenshot("testValidLogin_Fail");
+        } else {
+            test.log(Status.PASS, "✅ Login successful, Login screen disappeared.");
+        }
+    } catch (TimeoutException e) {
+        test.log(Status.FAIL, "❌ Timeout while waiting for homepage element: " + e.getMessage());
+        String screenshotPath = captureScreenshot("testValidLogin_Fail");
+        if (screenshotPath != null && !screenshotPath.isEmpty()) {
+            test.log(Status.FAIL, "❌ Login test failed due to timeout: " + e.getMessage(),
+                MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+        } else {
+            test.log(Status.FAIL, "❌ Login test failed due to timeout: " + e.getMessage());
+        }
+        Assert.fail(e.getMessage());
+    } catch (Exception e) {
+        String screenshotPath = captureScreenshot("testValidLogin_Fail");
+        if (screenshotPath != null && !screenshotPath.isEmpty()) {
             test.log(Status.FAIL, "❌ Login test failed: " + e.getMessage(),
                 MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
-            Assert.fail(e.getMessage());
+        } else {
+            test.log(Status.FAIL, "❌ Login test failed: " + e.getMessage());
         }
+        Assert.fail(e.getMessage());
     }
+}
+
 }

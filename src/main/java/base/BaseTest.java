@@ -62,18 +62,28 @@ public class BaseTest {
         }
     }
     public String captureScreenshot(String testName) {
-    try {
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String screenshotPath ="/Users/arpitamajumdar/.jenkins/workspace/Capstone_mobile_Automation_Project/target/screenshots/" + testName + ".png";
-        FileUtils.copyFile(screenshot, new File(screenshotPath));
-        System.out.println("✅ Screenshot saved: " + screenshotPath);
-        return screenshotPath;
-    } catch (IOException e) {
-        System.err.println("❌ Failed to save screenshot: " + e.getMessage());
-        return "";
+        try {
+            // Get the path dynamically from the project root directory
+            String projectDir = System.getProperty("user.dir");
+            String screenshotDir = projectDir + "/target/screenshots/";
+            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            String screenshotPath = screenshotDir + testName + ".png";
+    
+            // Ensure the directory exists before saving the screenshot
+            File dir = new File(screenshotDir);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+    
+            FileUtils.copyFile(screenshot, new File(screenshotPath));
+            System.out.println("✅ Screenshot saved: " + screenshotPath);
+            return screenshotPath;
+        } catch (IOException e) {
+            System.err.println("❌ Failed to save screenshot: " + e.getMessage());
+            return null; // Return null instead of an empty string
+        }
     }
-}
-
+    
     
 
     public AndroidDriver getDriver() {
