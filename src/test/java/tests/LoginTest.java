@@ -44,6 +44,7 @@ public void testValidLogin() {
 
     // Perform login
     loginPage.login("standard_user", "secret_sauce");
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
     // Use explicit wait instead of setting implicit wait to 0
     try {
