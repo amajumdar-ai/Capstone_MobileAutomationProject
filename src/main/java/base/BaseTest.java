@@ -64,7 +64,7 @@ public class BaseTest {
     public String captureScreenshot(String testName) {
     try {
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String screenshotPath = System.getProperty("user.dir") + "/target/screenshots/" + testName + ".png";
+        String screenshotPath ="/Users/arpitamajumdar/.jenkins/workspace/Capstone_mobile_Automation_Project/target/screenshots/" + testName + ".png";
         FileUtils.copyFile(screenshot, new File(screenshotPath));
         System.out.println("✅ Screenshot saved: " + screenshotPath);
         return screenshotPath;
