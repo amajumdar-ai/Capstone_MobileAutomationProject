@@ -1,0 +1,21 @@
+<suite name="SwagLabs Test Suite" parallel="tests" thread-count="2">
+    <test name="SwagLabs Appium Test - Medium Phone">
+        <parameter name="deviceName" value="Pixel_Fold_API_35_2"/>
+        <parameter name="udid" value="emulator-5556"/>  <!-- Change this after running `adb devices` -->
+        <parameter name="platformVersion" value="14"/>
+         <parameter name="appiumServerURL" value="http://127.0.0.1:4723"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="SwagLabs Appium Test - Pixel Fold">
+        <parameter name="deviceName" value="Pixel_Fold_API_35"/>
+        <parameter name="udid" value="emulator-5554"/>  <!-- Change this after running `adb devices` -->
+        <parameter name="platformVersion" value="14"/>
+        <parameter name="appiumServerURL" value="http://127.0.0.1:4725"/>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+</suite>
