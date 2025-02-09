@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-SwagLabs_Test_Suite" class="navigator-link">
-              <span class="suite-name border-failed">SwagLabs Test Suite</span>
+              <span class="suite-name border-passed">SwagLabs Test Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-SwagLabs_Test_Suite" class="navigator-link ">
-                    <span>testng_parallel.xml</span>
+                    <span>testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,21 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-SwagLabs_Test_Suite" class="hide-methods failed suite-SwagLabs_Test_Suite"> (hide)</a> <!-- hide-methods failed suite-SwagLabs_Test_Suite -->
-                      <a href="#" panel-name="suite-SwagLabs_Test_Suite" class="show-methods failed suite-SwagLabs_Test_Suite"> (show)</a> <!-- show-methods failed suite-SwagLabs_Test_Suite -->
-                    </span>
-                    <div class="method-list-content failed suite-SwagLabs_Test_Suite">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-SwagLabs_Test_Suite" title="tests.LoginTest" class="method navigator-link" hash-for-method="testValidLogin">testValidLogin</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-SwagLabs_Test_Suite -->
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -115,6 +101,11 @@
                       <a href="#" panel-name="suite-SwagLabs_Test_Suite" class="show-methods passed suite-SwagLabs_Test_Suite"> (show)</a> <!-- show-methods passed suite-SwagLabs_Test_Suite -->
                     </span>
                     <div class="method-list-content passed suite-SwagLabs_Test_Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-SwagLabs_Test_Suite" title="tests.LoginTest" class="method navigator-link" hash-for-method="testValidLogin">testValidLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-SwagLabs_Test_Suite" title="tests.LoginTest" class="method navigator-link" hash-for-method="testValidLogin">testValidLogin</a> <!-- method navigator-link -->
@@ -132,30 +123,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-SwagLabs_Test_Suite" class="panel SwagLabs_Test_Suite">
-          <div class="suite-SwagLabs_Test_Suite-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">tests.LoginTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="testValidLogin">
-                  </a> <!-- testValidLogin -->
-                  <span class="method-name">testValidLogin</span>
-                  <div class="stack-trace">java.lang.AssertionError: ScreenCapture path must not be null or empty
-	at tests.LoginTest.testValidLogin(LoginTest.java:63)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-... Removed 18 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-SwagLabs_Test_Suite-class-failed -->
           <div class="suite-SwagLabs_Test_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -169,12 +136,19 @@
                   <span class="method-name">testValidLogin</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testValidLogin">
+                  </a> <!-- testValidLogin -->
+                  <span class="method-name">testValidLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-SwagLabs_Test_Suite-class-passed -->
         </div> <!-- panel SwagLabs_Test_Suite -->
         <div panel-name="test-xml-SwagLabs_Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/Users/arpitamajumdar/.jenkins/workspace/Capstone_mobile_Automation_Project/testng_parallel.xml</span>
+            <span class="header-content">/Users/arpitamajumdar/Desktop/appium/Capstone_MobileAutomationProject/testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -243,16 +217,16 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testValidLogin')
 data.setCell(0, 2, 'tests.LoginTest')
-data.setCell(0, 3, 14845);
+data.setCell(0, 3, 12810);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testValidLogin')
 data.setCell(1, 2, 'tests.LoginTest')
-data.setCell(1, 3, 13148);
+data.setCell(1, 3, 10145);
 window.suiteTableData['SwagLabs_Test_Suite']= { tableData: data, tableDiv: 'times-div-SwagLabs_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 31 seconds</span>
               <div id="times-div-SwagLabs_Test_Suite">
               </div> <!-- times-div-SwagLabs_Test_Suite -->
             </div> <!-- times-div -->
@@ -285,21 +259,19 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">setupTest(Pixel_Fold_API_35_2, 14, emulator-5556, http://127.0.0.1:4723)</span>
-                <span class="method-start">20090 ms</span>
+                <span class="method-start">8783 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-test before">
                 <span class="method-name">setupTest(Pixel_Fold_API_35, 14, emulator-5554, http://127.0.0.1:4725)</span>
-                <span class="method-start">20090 ms</span>
+                <span class="method-start">8783 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">testValidLogin</span>
-                <span class="method-start">65958 ms</span>
+                <span class="method-start">25623 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testValidLogin</span>
-                <span class="method-start">65958 ms</span>
+                <span class="method-start">29832 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
