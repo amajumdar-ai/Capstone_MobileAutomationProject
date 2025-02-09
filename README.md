@@ -4,3 +4,7 @@ Run this script to execute the test in multi devices- for device in $(adb device
 done
 
 After running the above command run this to execute the tests- mvn clean test -Dsurefire.suiteXmlFiles=testng.xml
+
+
+
+Reports can be found under: surefire-reports>index.html
